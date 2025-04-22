@@ -1,0 +1,20 @@
+<%= @user.name %>,
+
+This is a reminder about the following issue:
+
+<%= @issue.tracker.name %> #<%= @issue.id %>: <%= @issue.subject %>
+
+<% if @rappel.message.present? %>
+<%= @rappel.message %>
+<% end %>
+
+Status: <%= @issue.status.name %>
+Priority: <%= @issue.priority.name %>
+<% if @issue.assigned_to %>
+Assigned to: <%= @issue.assigned_to.name %>
+<% end %>
+Due date: <%= format_date(@issue.due_date) if @issue.due_date %>
+
+You can view this issue at: <%= @issue_url %>
+
+This reminder will continue to be sent until the issue is closed. 

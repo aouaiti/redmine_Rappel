@@ -1,0 +1,22 @@
+<p>Dear <%= @user.name %>,</p>
+
+<p>This is a reminder about the following issue:</p>
+
+<h2><%= link_to "#{@issue.subject}", @issue_url %></h2>
+
+<% if @rappel.message.present? %>
+  <p><%= @rappel.message %></p>
+<% end %>
+
+<p>
+  <strong>Status:</strong> <%= @issue.status.name %><br>
+  <strong>Priority:</strong> <%= @issue.priority.name %><br>
+  <% if @issue.assigned_to %>
+    <strong>Assigned to:</strong> <%= @issue.assigned_to.name %><br>
+  <% end %>
+  <strong>Due date:</strong> <%= format_date(@issue.due_date) if @issue.due_date %>
+</p>
+
+<p>You can view this issue at: <%= link_to @issue_url, @issue_url %></p>
+
+<p>This reminder will continue to be sent until the issue is closed.</p> 
