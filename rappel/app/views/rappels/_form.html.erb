@@ -16,6 +16,7 @@
     <%= f.select :frequency_unit, 
                  [['Minutes', 'minute'], ['Hours', 'hour'], ['Days', 'day'], ['Weeks', 'week'], ['Months', 'month']], 
                  { required: true } %>
+    <br>
     <%= f.number_field :frequency_value, required: true, min: 1 %>
   </p>
 </div> 
